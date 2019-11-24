@@ -1,0 +1,33 @@
+#vimが残らないようにする
+altscreen on
+
+#起動後に出るメッセージOFF
+startup_message off   #起動後に出るメッセージOFF
+
+#マウススクロール有効
+termcapinfo xterm* ti@:te@
+
+#ステータスバー設定
+#hardstatus alwayslastline "[%Y-%m-%d(%D) %c:%s] %`%-w%{=b bw}%n %t%{-}%+w $STY"
+
+#^aの後にrを押し、j,kで領域を変更する
+#bind r eval 'echo "Resize window"' 'command -c resize'
+#bind -c resize ^]  command
+#bind -c resize k eval 'resize +1' 'command -c resize'
+#bind -c resize j eval 'resize -1' 'command -c resize'
+
+
+bind r eval 'command -c resize' 'echo "Resize window"'
+bind ^r eval 'command -c resize' 'echo "Resize window"'
+bind -c resize h eval 'command -c resize' 'resize -h -1'
+bind -c resize l eval 'command -c resize' 'resize -h +1'
+bind -c resize j eval 'command -c resize' 'resize -v +1'
+bind -c resize k eval 'command -c resize' 'resize -v -1'
+bind -c resize ^h eval 'command -c resize' 'resize -h -1'
+bind -c resize ^l eval 'command -c resize' 'resize -h +1'
+bind -c resize ^j eval 'command -c resize' 'resize -v +1'
+bind -c resize ^k eval 'command -c resize' 'resize -v -1'
+
+#escape ^Tt    #Ctrl+a からCtrl+tに変更
+#bind a focus #リージョン移動をctr+a+a
+bind j focus down#リージョン移動をctr+a+a
